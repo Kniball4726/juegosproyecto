@@ -2,8 +2,39 @@ import random
 from .utils import borrarPantalla
 from .menu import menu
 
+"""
+    Este módulo se encarga de la función de los juegos disponibles en el sistema. Contiene las funciones para cada juego, así como la función principal para gestionar la selección de juegos por parte del usuario.
+    Funciones:
+    - juegospc: Función principal para gestionar la selección de juegos por parte del usuario.
+    - caracruz: Función para el juego de cara o cruz.
+    - piedrapapeltijera: Función para el juego de piedra, papel, tijera.
+    - adivina_el_numero: Función para el juego de adivina el número.
+    Variables:
+    - lista: Lista para almacenar los nombres de los jugadores.
+    - correcto: Número de veces que el usuario acierta en el juego de cara o cruz.
+    - incorrecto: Número de veces que el usuario falla en el juego de cara o cruz.
+    - ganaste: Número de veces que el usuario gana en el juego de piedra, papel, tijera.
+    - perdiste: Número de veces que el usuario pierde en el juego de piedra, papel, tijera.
+    - contador: Número de rondas jugadas.
+    - numeroCompu: Número generado por la computadora en el juego de adivina el número.
+    - numeroUsuario: Número ingresado por el usuario en el juego de adivina el número.
+    - intentos: Número de intentos realizados por el usuario en el juego de adivina el número."""
 
 def juegospc(op:int):
+    """Función principal para gestionar la selección de juegos por parte del usuario. Recibe como parámetro la opción seleccionada por el usuario en el menú, y ejecuta la función correspondiente al juego seleccionado.
+    
+    Variables:
+    - op: Opción seleccionada por el usuario en el menú. 
+    - lista: Lista para almacenar los nombres de los jugadores.
+    - correcto: Número de veces que el usuario acierta en el juego de cara o cruz.
+    - incorrecto: Número de veces que el usuario falla en el juego de cara o cruz.
+    - ganaste: Número de veces que el usuario gana en el juego de piedra, papel, tijera.
+    - perdiste: Número de veces que el usuario pierde en el juego de piedra, papel, tijera.
+    - contador: Número de rondas jugadas.
+    - numeroCompu: Número generado por la computadora en el juego de adivina el número.
+    - numeroUsuario: Número ingresado por el usuario en el juego de adivina el número.
+    - intentos: Número de intentos realizados por el usuario en el juego de adivina el número.
+    """
     
     while op != 4:
         op = menu()
@@ -29,6 +60,15 @@ def juegospc(op:int):
 
 
 def caracruz():
+    """Función para el juego de cara o cruz. El usuario debe elegir entre cara (0) o cruz (1), y la computadora generará aleatoriamente su elección. El juego se juega en tres rondas, y el usuario gana si acierta al menos dos veces contra la computadora.   
+    Variables:
+    - lista: Lista para almacenar los nombres de los jugadores.
+    - contador: Número de rondas jugadas.
+    - correcto: Número de veces que el usuario acierta en el juego de cara o cruz.
+    - incorrecto: Número de veces que el usuario falla en el juego de cara o cruz.
+    
+    """
+    
     lista=[]
     contador=0      
     correcto=0
@@ -67,6 +107,14 @@ def caracruz():
     
 
 def piedrapapeltijera():
+    """Función para el juego de piedra, papel, tijera. El usuario debe elegir entre piedra (0), papel (1) o tijera (2), y la computadora generará aleatoriamente su elección. El juego se juega en tres rondas, y el usuario gana si gana al menos dos veces contra la computadora.
+    Variables:
+    - lista: Lista para almacenar los nombres de los jugadores.
+    - ganaste: Número de veces que el usuario gana en el juego de piedra, papel, tijera.
+    - perdiste: Número de veces que el usuario pierde en el juego de piedra, papel, tijera.
+    - contador: Número de rondas jugadas.
+    
+    """
     lista=[]
     ganaste=0
     perdiste=0
@@ -132,6 +180,16 @@ def piedrapapeltijera():
             
 
 def adivina_el_numero():
+    """Función para el juego de adivina el número. La computadora generará aleatoriamente un número entre 1 y 10, y el usuario debe adivinarlo. El usuario tiene tres intentos para adivinar el número, y la computadora le dará pistas si el número ingresado es mayor o menor que el número generado. El usuario gana si adivina el número dentro de los tres intentos.
+    Variables:
+    - lista: Lista para almacenar los nombres de los jugadores.
+    - intentos: Número de intentos realizados por el usuario.
+    - numeroCompu: Número generado aleatoriamente por la computadora.
+
+    - numeroUsuario: Número ingresado por el usuario.
+    
+    """
+
     lista=[]
     intentos=0
     numeroCompu=random.randint(1,10)
