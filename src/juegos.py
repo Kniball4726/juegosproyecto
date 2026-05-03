@@ -29,6 +29,7 @@ def juegospc(op:int):
 
 
 def caracruz():
+    lista=[]
     contador=0      
     correcto=0
     incorrecto=0
@@ -45,25 +46,38 @@ def caracruz():
             incorrecto+=1
             contador+=1
     if contador >= 2 and correcto > incorrecto:
-        input("Ganaste contra la maquina")
-        borrarPantalla()
-    else:
-        input("Perdiste contra la maquina")
+        print("Ganaste contra la maquina\n")
+        lista.append(input("Indique su nombre para el ranking\n"))
+        print("Ranking de jugadores\n")
+        for i in lista:
+            print(i)
+        input("presione enter para continuar")
         borrarPantalla()
 
+        menu()
+    else:
+        print("Perdiste contra la maquina\n")
+        lista.append(input("Indique su nombre para el ranking\n"))
+        print("Ranking de jugadores\n")
+        for i in lista:
+            print(i)
+        input("presione enter para continuar")
+        borrarPantalla()
+        menu()
+    
+
 def piedrapapeltijera():
+    lista=[]
     ganaste=0
     perdiste=0
-    
     contador=0
     
     while contador<3:
         pc=random.randint(0,2)
         usuario=int(input("\n0.-pieda, 1.- papel, 2.-tijera\n"))
         print("La maquina eligio: "+str(pc))
-        
         if(pc==usuario):
-            print("Quedaron en empate\n")
+            input("Quedaron en empate\n")
             contador+=1
         elif(usuario==0 and pc==2):
             input("Ganaste contra la maquina\n")
@@ -96,10 +110,18 @@ def piedrapapeltijera():
             menu()
     if ganaste > perdiste:
         input("Ganaste contra la maquina con ventaja de " + str(ganaste) + " a " + str(perdiste))
+        lista.append(input("Indique su nombre para el ranking\n"))
+        print("Ranking de jugadores\n")
+        for i in lista:
+            print(i)
         borrarPantalla()
         menu()
     elif perdiste > ganaste:
         input("Perdiste contra la maquina con desventaja de " + str(perdiste) + " a " + str(ganaste))
+        lista.append(input("Indique su nombre para el ranking\n"))
+        print("Ranking de jugadores\n")
+        for i in lista:
+            print(i)
         borrarPantalla()
         menu()
     else:
@@ -110,8 +132,10 @@ def piedrapapeltijera():
             
 
 def adivina_el_numero():
-    numeroCompu=random.randint(1,10)
+    lista=[]
     intentos=0
+    numeroCompu=random.randint(1,10)
+    
     while(intentos<3):
         numeroUsuario=int(input("Adivina el número del 1 al 10\n"))
         if(numeroUsuario!=numeroCompu):
@@ -123,10 +147,18 @@ def adivina_el_numero():
                 intentos+=1
         else:
             print("GANASTE! Adivinaste el número!\n")
+            lista.append(input("Indique su nombre para el ranking\n"))
+            print("Ranking de jugadores\n")
+            for i in lista:
+                print(i)
             input("presione enter para continuar")
             borrarPantalla()
             menu()
     print("\nPerdiste, el número era " + str(numeroCompu))
+    lista.append(input("Indique su nombre para el ranking\n"))
+    print("Ranking de jugadores\n")
+    for i in lista:
+        print(i)
     input("\npresione enter para continuar")
     borrarPantalla()
     menu()
