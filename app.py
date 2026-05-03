@@ -1,4 +1,5 @@
-import src.menu as menu
+from src.ingreso import ingreso
+
 if __name__ == "__main__":
-    menu.menu()
+    ingreso()
     
